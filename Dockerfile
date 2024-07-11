@@ -1,5 +1,9 @@
 FROM alpine:3.19
 
+RUN apk update && apk add --no-cache ca-certificates
+
+RUN update-ca-certificates
+
 RUN apk add --no-cache bash curl jq
 
 COPY entrypoint.sh /entrypoint.sh
